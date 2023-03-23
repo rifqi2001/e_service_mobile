@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.2.19
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -40,6 +41,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: "^0.12.0"
+
+flutter_native_splash:
+  background_image: "assets/images/bg1.png"
+  image: assets/images/logo.png
+  android: true
+  ios: true
 
 flutter_icons:
   android: "launcher_icon"
