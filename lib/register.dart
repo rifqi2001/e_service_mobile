@@ -103,7 +103,7 @@ class _MyRegisterState extends State<MyRegister> {
                         child: IconButton(
                           color: Colors.blue,
                           onPressed: () {
-                            Navigator.pushNamed(context, 'menu.dashboard');
+                            Navigator.pushNamed(context, 'home_page');
                           },
                           icon: const Icon(Icons.arrow_forward),
                         ),

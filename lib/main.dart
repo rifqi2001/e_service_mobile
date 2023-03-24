@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:e_service/menu.dashboard.dart';
 import 'package:e_service/login.dart';
 import 'package:e_service/register.dart';
+import 'package:e_service/home_page.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
@@ -15,7 +15,7 @@ void main() {
         routes: {
           'login': (context) => const MyLogin(),
           'register': (context) => const MyRegister(),
-          'menu.dashboard': (context) => const MenuDashboardPage(),
+          'home_page': (context) => const HomePage(),
         }),
   );
 }
