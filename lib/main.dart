@@ -8,7 +8,7 @@ void main() {
   runApp(
     MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'home_page',
+        initialRoute: 'login',
         theme: ThemeData(
         fontFamily: 'Poppins',
       ),
