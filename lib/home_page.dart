@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:e_service/widget/category.dart';
+import 'package:e_service/widget/konten.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -109,7 +110,56 @@ class _HomePageState extends State<HomePage> {
                   Category(imagePath: "assets/icons/price.png", title: "Cek Harga"),
                 ],
               ),
-            )
+            ),
+            Padding(padding: const EdgeInsets.all(15),
+            child: Text(
+              "Pemberitahuan", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Santana'),
+            ),
+            ),
+            Container(
+              color: Color.fromARGB(255, 253, 255, 168),
+              margin: EdgeInsets.only(left: 20.0, right: 20.0),
+              height: 40,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  children: [
+                    Icon(Icons.crisis_alert, color: Colors.grey),
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        "Anda belum memberi rating",
+                        style: TextStyle(fontSize: 11),
+                      ),
+                    ),
+                    Text(
+                      "10.00 PM",
+                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(padding: const EdgeInsets.all(15),
+            child: Text(
+              "Informasi untuk Pengguna!", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, fontFamily: 'Santana')
+            ),
+            ),
+            Content(
+              imagePath: "assets/images/winter.jpg",
+              judul: "Paket Winter Party",
+              desc: "Membeli langganan perawatan AC agar lebih hemat",
+            ),
+            Content(
+              imagePath: "assets/images/banner1.png",
+              judul: "Diskon pemesanan Service AC",
+              desc: "Dapatkan dengan cara minimal pemesanan 3 AC dan\ndapatkan diskon up to 10%",
+            ),
+            Content(
+              imagePath: "assets/images/teknisi.png",
+              judul: "Teknisi",
+              desc: "Kami memilih Teknisi yang berpengalaman dan terpercaya",
+            ),
           ],
         )),
       ),
