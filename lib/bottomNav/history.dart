@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:e_service/bottom.dart';
 
-class Profil extends StatefulWidget {
-  const Profil({super.key});
+class History extends StatefulWidget {
+  const History({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<Profil> {
+class _HomePageState extends State<History> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Center(
-        child: Text("Profil"),
+        child: Text("History"),
       ),
     );
   }

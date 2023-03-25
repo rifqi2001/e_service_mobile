@@ -1,9 +1,9 @@
-import 'package:e_service/history.dart';
+import 'package:e_service/bottomNav/history.dart';
 import 'package:flutter/material.dart';
 import 'package:e_service/login.dart';
 import 'package:e_service/register.dart';
-import 'package:e_service/home_page.dart';
-import 'package:e_service/bottom.dart';
+import 'package:e_service/bottomNav/home_page.dart';
+import 'package:e_service/bottomNav/bottom.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {

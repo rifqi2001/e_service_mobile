@@ -1,6 +1,6 @@
-import 'package:e_service/history.dart';
-import 'package:e_service/home_page.dart';
-import 'package:e_service/profil.dart';
+import 'package:e_service/bottomNav/history.dart';
+import 'package:e_service/bottomNav/home_page.dart';
+import 'package:e_service/bottomNav/profil.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavi extends StatefulWidget {
@@ -37,7 +37,7 @@ class _BottomNaviState extends State<BottomNavi> {
             color: Colors.grey,
           ),
           label: 'Riwayat\nPesanan',
-          activeIcon: Icon(Icons.home_outlined, color: Colors.amberAccent),
+          activeIcon: Icon(Icons.history_outlined, color: Colors.amberAccent),
         ),
         BottomNavigationBarItem(
           icon: Icon(
@@ -45,7 +45,7 @@ class _BottomNaviState extends State<BottomNavi> {
             color: Colors.grey,
           ),
           label: 'Profil',
-          activeIcon: Icon(Icons.home_outlined, color: Colors.amberAccent),
+          activeIcon: Icon(Icons.person_outlined, color: Colors.amberAccent),
         )
       ]),
     );
