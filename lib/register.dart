@@ -13,7 +13,7 @@ class _MyRegisterState extends State<MyRegister> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover),
+            image: AssetImage('assets/images/cover1.jpg'), fit: BoxFit.cover),
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -28,7 +28,7 @@ class _MyRegisterState extends State<MyRegister> {
               padding: const EdgeInsets.only(top: 80),
               child: const Text(
                 "Sign Up",
-                style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+                style: TextStyle(color: Color.fromARGB(255, 27, 27, 27), fontSize: 40, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
                 ),
               ),
             ),
@@ -47,10 +47,10 @@ class _MyRegisterState extends State<MyRegister> {
                     // ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Color.fromARGB(255, 27, 27, 27)),
                     ),
                     hintText: 'Name',
-                    hintStyle: const TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Color.fromARGB(255, 27, 27, 27)),
                     prefixIcon: Icon(Icons.person)
                   ),
                 ),
@@ -65,10 +65,10 @@ class _MyRegisterState extends State<MyRegister> {
                     // ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Color.fromARGB(255, 27, 27, 27)),
                     ),
                     hintText: 'Email',
-                    hintStyle: const TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Color.fromARGB(255, 27, 27, 27)),
                     prefixIcon: Icon(Icons.mail)
                   ),
                 ),
@@ -84,10 +84,10 @@ class _MyRegisterState extends State<MyRegister> {
                     // ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Color.fromARGB(255, 27, 27, 27)),
                     ),
                     hintText: 'Password',
-                    hintStyle: const TextStyle(color: Colors.white),
+                    hintStyle: const TextStyle(color: Color.fromARGB(255, 27, 27, 27)),
                     prefixIcon: Icon(Icons.lock)
                   ),
                 ),

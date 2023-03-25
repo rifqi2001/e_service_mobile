@@ -13,18 +13,22 @@ class _MyLoginState extends State<MyLogin> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover),
+            image: AssetImage('assets/images/cover1.jpg'), fit: BoxFit.cover),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Stack(children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                padding: const EdgeInsets.only(top: 80),
-                child: const Text(
+          Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              padding: const EdgeInsets.only(top: 80),
+              child: const Text(
                 "LOGIN",
-                style: TextStyle(color: Color.fromARGB(248, 255, 255, 255), fontSize: 40, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+                style: TextStyle(
+                    color: Color.fromARGB(248, 27, 27, 27),
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Poppins'),
               ),
             ),
           ),
@@ -40,11 +44,11 @@ class _MyLoginState extends State<MyLogin> {
                     fillColor: Colors.transparent,
                     filled: true,
                     hintText: 'Email',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: TextStyle(color: Color.fromARGB(248, 27, 27, 27)),
                     prefixIcon: Icon(Icons.mail),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Color.fromARGB(248, 27, 27, 27)),
                     ),
                   ),
                 ),
@@ -57,11 +61,11 @@ class _MyLoginState extends State<MyLogin> {
                     fillColor: Colors.transparent,
                     filled: true,
                     hintText: 'Password',
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: TextStyle(color: Color.fromARGB(248, 27, 27, 27)),
                     prefixIcon: Icon(Icons.lock),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Colors.white),
+                      borderSide: const BorderSide(color: Color.fromARGB(248, 27, 27, 27)),
                     ),
                   ),
                 ),
