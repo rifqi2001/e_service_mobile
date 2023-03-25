@@ -8,7 +8,8 @@ class Category extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
+      child: Card(
       margin: EdgeInsets.all(10),
       child: Padding(
         padding: const EdgeInsets.all(14.0),
@@ -33,6 +34,6 @@ class Category extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }
