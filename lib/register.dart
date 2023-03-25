@@ -103,7 +103,7 @@ class _MyRegisterState extends State<MyRegister> {
                         child: IconButton(
                           color: Colors.blue,
                           onPressed: () {
-                            Navigator.pushNamedAndRemoveUntil(context, 'home_page', (route) => false);
+                            Navigator.pushNamedAndRemoveUntil(context, 'bottom', (route) => false);
                           },
                           icon: const Icon(Icons.arrow_forward),
                         ),

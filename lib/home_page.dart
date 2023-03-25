@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:e_service/widget/category.dart';
 import 'package:e_service/widget/konten.dart';
+import 'package:e_service/history.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,40 +11,40 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedTabIndex = 0;
+  // int _selectedTabIndex = 0;
 
-  void _onNavBarTapped(int index) {
-    setState(() {
-      _selectedTabIndex = index;
-    });
-  }
+  // void _onNavBarTapped(int index) {
+  //   setState(() {
+  //     _selectedTabIndex = index;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
-    final _bottomNavBarItems = <BottomNavigationBarItem>[
-      const BottomNavigationBarItem(
-        icon: Icon(Icons.home),
-        label: "Beranda",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.history),
-        label: "Riwayat\nPesanan",
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.person),
-        label: "Profil",
-      ),
-    ];
+    // final _bottomNavBarItems = <BottomNavigationBarItem>[
+    //   const BottomNavigationBarItem(
+    //     icon: Icon(Icons.home),
+    //     label: "Beranda",
+    //   ),
+    //   BottomNavigationBarItem(
+    //     icon: Icon(Icons.history),
+    //     label: "Riwayat\nPesanan",
+    //   ),
+    //   BottomNavigationBarItem(
+    //     icon: Icon(Icons.person),
+    //     label: "Profil",
+    //   ),
+    // ];
 
-    final _bottomNavBar = BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
-      items: _bottomNavBarItems,
-      currentIndex: _selectedTabIndex,
-      unselectedItemColor: Colors.grey,
-      selectedItemColor: Colors.blue,
-      onTap: _onNavBarTapped,
-    );
+    // final _bottomNavBar = BottomNavigationBar(
+    //   type: BottomNavigationBarType.fixed,
+    //   backgroundColor: Colors.white,
+    //   items: _bottomNavBarItems,
+    //   currentIndex: _selectedTabIndex,
+    //   unselectedItemColor: Colors.grey,
+    //   selectedItemColor: Colors.blue,
+    //   onTap: _onNavBarTapped,
+    // );
 
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -230,7 +231,7 @@ class _HomePageState extends State<HomePage> {
           ],
         )),
       ),
-      bottomNavigationBar: _bottomNavBar,
+      // bottomNavigationBar: _bottomNavBar,
     );
   }
 }

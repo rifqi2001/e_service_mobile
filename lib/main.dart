@@ -1,7 +1,9 @@
+import 'package:e_service/history.dart';
 import 'package:flutter/material.dart';
 import 'package:e_service/login.dart';
 import 'package:e_service/register.dart';
 import 'package:e_service/home_page.dart';
+import 'package:e_service/bottom.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
@@ -16,6 +18,8 @@ void main() {
           'login': (context) => const MyLogin(),
           'register': (context) => const MyRegister(),
           'home_page': (context) => const HomePage(),
+          'bottom': (context) => const BottomNavi(),
+          'history': (context) => const History(),
         }),
   );
 }
