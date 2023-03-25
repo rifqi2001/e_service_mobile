@@ -9,19 +9,21 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.all(10),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(14.0),
         child: Container(
-          width: 45,
+          width: 50,
           height: 55,
+          decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
           child: Column(
             children: [
               Image.asset(
                 imagePath,
-                width: 20,
+                width: 25,
               ),
               SizedBox(
-                height: 10,
+                height: 5,
               ),
               Text(
                 title,

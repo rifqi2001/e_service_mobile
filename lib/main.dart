@@ -8,9 +8,9 @@ void main() {
   runApp(
     MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute: 'home_page',
         theme: ThemeData(
-        fontFamily: 'Poppins',
+        fontFamily: 'Poppins',  
       ),
         routes: {
           'login': (context) => const MyLogin(),

@@ -25,7 +25,11 @@ class _HomePageState extends State<HomePage> {
             Stack(
               children: [
                 Container(
-                  height: 140, width: double.infinity, color: Colors.blue,
+                  height: 140, width: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image: AssetImage('assets/images/bg.png'),
+                    fit: BoxFit.cover),
+                  ),
                 ),
                 Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -39,15 +43,15 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Container(
                             alignment: Alignment.topLeft,
-                            height: 45,
-                            width: 45,
+                            height: 50,
+                            width: 50,
                             decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage('assets/icons/default-profile.png')),
+                              image: DecorationImage(image: AssetImage('assets/icons/face.png')),
                               borderRadius: BorderRadius.circular(25),
                               border: Border.all(
                                 color: Colors.white,
                                 style: BorderStyle.solid,
-                                width: 1
+                                width: 2
                               )
                             )
                           ),
@@ -55,8 +59,10 @@ class _HomePageState extends State<HomePage> {
                             width: 10,
                           ),
                           Text(
-                            "Haloo Users!", style: TextStyle(
+                            "Selamat Datang!\nUsers", style: TextStyle(
                               color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
                             ),
                           )
                         ],
@@ -75,39 +81,27 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 15,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                      child: Container(
-                        height: 60,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Color(0xFFF5F5F7),
-                            borderRadius: BorderRadius.circular(30)),
-                        child: TextField(
-                          cursorHeight: 20,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              hintText: "Cari disini...",
-                              prefixIcon: Icon(Icons.search),
-                              border: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(color: Colors.grey, width: 2),
-                                  borderRadius: BorderRadius.circular(30))),
-                        ),
-                      ),
-                  ),
                 ],
                 )
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.only(left: 25, top: 5),
               child: Row(
                 children: [
                   Category(imagePath: "assets/icons/cuci.png", title: "Cuci AC"),
-                  Category(imagePath: "assets/icons/ac.png", title: "Perbaikan AC"),
-                  Category(imagePath: "assets/icons/bongkar-pasang.png", title: "Pasang AC"),
-                  Category(imagePath: "assets/icons/price.png", title: "Cek Harga"),
+                  Category(imagePath: "assets/icons/bongkar-pasang.png", title: "Perbaikan AC"),
+                  Category(imagePath: "assets/icons/ac.png", title: "Pasang AC"),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 25),
+              child: Row(
+                children: [
+                  Category(imagePath: "assets/icons/price.png", title: "Promo"),
+                  Category(imagePath: "assets/icons/coins.png", title: "Cek Harga"),
+                  Category(imagePath: "assets/icons/question.png", title: "Bantuan"),
                 ],
               ),
             ),
@@ -128,14 +122,17 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(width: 10),
                     Expanded(
                       child: Text(
-                        "Anda belum memberi rating",
+                        "Anda mendapat pemberitahuan baru",
                         style: TextStyle(fontSize: 11),
                       ),
                     ),
-                    Text(
-                      "10.00 PM",
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
+                    ElevatedButton(onPressed: () {}, 
+                    style: ElevatedButton.styleFrom(
+                      textStyle: TextStyle(fontSize: 12),
+                      minimumSize: Size(60, 25),
+                      backgroundColor: Colors.yellow,
                     ),
+                    child: Text("Cek Disini", style: TextStyle(color: Colors.black, fontFamily: 'Poppins', fontSize: 10)))
                   ],
                 ),
               ),
@@ -147,7 +144,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Content(
               imagePath: "assets/images/winter.jpg",
-              judul: "Paket Winter Party",
+              judul: "Paket Penawaran Langganan",
               desc: "Membeli langganan perawatan AC agar lebih hemat",
             ),
             Content(
