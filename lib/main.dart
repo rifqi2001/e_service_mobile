@@ -1,4 +1,4 @@
-import 'package:e_service/bottomNav/history.dart';
+import 'package:e_service/forgot_password.dart';
 import 'package:flutter/material.dart';
 import 'package:e_service/login.dart';
 import 'package:e_service/register.dart';
@@ -17,6 +17,7 @@ void main() {
         routes: {
           'login': (context) => const MyLogin(),
           'register': (context) => const MyRegister(),
+          'forgot_password': (context) => ForgotPasswordScreen(),
           'home_page': (context) => const HomePage(),
           'bottom': (context) => const BottomNavi(),
         }),

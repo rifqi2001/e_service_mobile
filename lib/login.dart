@@ -8,6 +8,10 @@ class MyLogin extends StatefulWidget {
 }
 
 class _MyLoginState extends State<MyLogin> {
+  final TextEditingController emailController = TextEditingController();
+
+  bool isEmailValid = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,13 +48,20 @@ class _MyLoginState extends State<MyLogin> {
                     fillColor: Colors.transparent,
                     filled: true,
                     hintText: 'Email',
-                    hintStyle: TextStyle(color: Color.fromARGB(248, 27, 27, 27)),
+                    hintStyle:
+                        TextStyle(color: Color.fromARGB(248, 27, 27, 27)),
                     prefixIcon: Icon(Icons.mail),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Color.fromARGB(248, 27, 27, 27)),
+                      borderSide: const BorderSide(
+                          color: Color.fromARGB(248, 27, 27, 27)),
                     ),
                   ),
+                  onChanged: (value) {
+                    setState(() {
+                      isEmailValid = value.isNotEmpty && value.contains('@');
+                    });
+                  },
                 ),
                 const SizedBox(
                   height: 30,
@@ -61,11 +72,13 @@ class _MyLoginState extends State<MyLogin> {
                     fillColor: Colors.transparent,
                     filled: true,
                     hintText: 'Password',
-                    hintStyle: TextStyle(color: Color.fromARGB(248, 27, 27, 27)),
+                    hintStyle:
+                        TextStyle(color: Color.fromARGB(248, 27, 27, 27)),
                     prefixIcon: Icon(Icons.lock),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Color.fromARGB(248, 27, 27, 27)),
+                      borderSide: const BorderSide(
+                          color: Color.fromARGB(248, 27, 27, 27)),
                     ),
                   ),
                 ),
@@ -81,7 +94,24 @@ class _MyLoginState extends State<MyLogin> {
                       child: IconButton(
                         color: Colors.blue,
                         onPressed: () {
+                          if (isEmailValid){
                           Navigator.pushReplacementNamed(context, 'bottom');
+                        } else{
+                          showDialog(context: context, builder: (BuildContext context){
+                            return AlertDialog(
+                              title: Text('Error'),
+                              content: Text('Email harus diisi sebelum login'),
+                              actions: <Widget>[
+                                TextButton(onPressed: (){
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('OK'),
+                                ),
+                              ],
+                            );
+                          },
+                          );
+                        }
                         },
                         icon: const Icon(Icons.arrow_forward),
                       ),
@@ -109,7 +139,9 @@ class _MyLoginState extends State<MyLogin> {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'forgot_password');
+                        },
                         child: const Text(
                           'Forgot Password',
                           style: TextStyle(
