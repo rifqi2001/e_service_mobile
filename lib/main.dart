@@ -19,7 +19,6 @@ void main() {
           'register': (context) => const MyRegister(),
           'home_page': (context) => const HomePage(),
           'bottom': (context) => const BottomNavi(),
-          'history': (context) => const History(),
         }),
   );
 }
