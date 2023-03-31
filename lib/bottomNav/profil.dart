@@ -74,16 +74,41 @@ class _HomePageState extends State<Profil> {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: _getImageFromGallery,
-                  child: Text('Ubah Foto'),
-                  style: ElevatedButton.styleFrom(
-                    textStyle: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold),
-                    backgroundColor: Color.fromARGB(255, 0, 62, 112),
+                SizedBox(height: 25),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: _getImageFromGallery,
+                        child: Text('Ubah Foto'),
+                        style: ElevatedButton.styleFrom(
+                          textStyle: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold),
+                          backgroundColor: Color.fromARGB(255, 0, 62, 112),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(left: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      child: IconButton(
+                        icon: Icon(Icons.delete),
+                        onPressed: () async {
+                          final prefs = await SharedPreferences.getInstance();
+                          prefs.remove('imagePath');
+                          setState(() {
+                            _image = null;
+                          });
+                        },
+                        color: Color.fromARGB(255, 0, 62, 112),
+                      ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 20),
