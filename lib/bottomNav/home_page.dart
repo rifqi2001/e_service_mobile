@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:e_service/widget/category.dart';
 import 'package:e_service/widget/konten.dart';
 import 'package:e_service/homePageNav/notification.dart';
+import 'package:e_service/homePageNav/promo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,10 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
-
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SingleChildScrollView(
@@ -93,17 +92,20 @@ class _HomePageState extends State<HomePage> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationScreen(),
-                              ),
-                              );  
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => NotificationScreen(),
+                                ),
+                              );
                             },
-                          child: Container(
-                              alignment: Alignment.topRight,
-                              child: Icon(
-                                Icons.notifications_active,
-                                color: Colors.white,
-                                size: 30,
-                              )),
+                            child: Container(
+                                alignment: Alignment.topRight,
+                                child: Icon(
+                                  Icons.notifications_active,
+                                  color: Colors.white,
+                                  size: 30,
+                                )),
                           )
                         ],
                       ),
@@ -119,12 +121,16 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(left: 25),
                     child: Row(
                       children: [
-                        Category(imagePath: "assets/icons/cuci.png", title: "Cuci AC"),
+                        Category(
+                            imagePath: "assets/icons/cuci.png",
+                            title: "Cuci AC"),
                         Category(
                           imagePath: "assets/icons/bongkar-pasang.png",
                           title: "Perbaikan AC",
                         ),
-                        Category(imagePath: "assets/icons/ac.png", title: "Pasang AC"),
+                        Category(
+                            imagePath: "assets/icons/ac.png",
+                            title: "Pasang AC"),
                       ],
                     ),
                   ),
@@ -138,9 +144,35 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(left: 25),
                     child: Row(
                       children: [
-                        Category(imagePath: "assets/icons/price.png", title: "Promo"),
-                        Category(imagePath: "assets/icons/coins.png", title: "Cek Harga"),
-                        Category(imagePath: "assets/icons/question.png", title: "Bantuan"),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PromoScreen(),
+                                ),
+                              );
+                          },
+                          child: Category(
+                              imagePath: "assets/icons/price.png",
+                              title: "Promo"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '');
+                          },
+                          child: Category(
+                              imagePath: "assets/icons/coins.png",
+                              title: "Cek Harga"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '');
+                          },
+                          child: Category(
+                              imagePath: "assets/icons/question.png",
+                              title: "Bantuan"),
+                        )
                       ],
                     ),
                   ),
@@ -176,9 +208,10 @@ class _HomePageState extends State<HomePage> {
                     ElevatedButton(
                         onPressed: () {
                           Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => NotificationScreen()),
-                        );
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => NotificationScreen()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           textStyle: TextStyle(fontSize: 12),
@@ -209,10 +242,10 @@ class _HomePageState extends State<HomePage> {
                   Content(
                     imagePath: "assets/images/banner4.png",
                   ),
-                    Content(
+                  Content(
                     imagePath: "assets/images/banner3.png",
                   ),
-                    Content(
+                  Content(
                     imagePath: "assets/images/banner2.png",
                   ),
                   Content(
