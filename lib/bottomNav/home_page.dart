@@ -3,7 +3,8 @@ import 'package:e_service/widget/category.dart';
 import 'package:e_service/widget/konten.dart';
 import 'package:e_service/homePageNav/notification.dart';
 import 'package:e_service/homePageNav/promo.dart';
-import 'package:e_service/homePageNav/cekHarga.dart';
+import 'package:e_service/homePageNav/pricing.dart';
+import 'package:e_service/homePageNav/help.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -176,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => PromoScreen(),
+                                  builder: (context) => BantuanScreen(),
                                 ),
                               );
                           },
