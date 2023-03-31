@@ -3,6 +3,7 @@ import 'package:e_service/widget/category.dart';
 import 'package:e_service/widget/konten.dart';
 import 'package:e_service/homePageNav/notification.dart';
 import 'package:e_service/homePageNav/promo.dart';
+import 'package:e_service/homePageNav/cekHarga.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -159,7 +160,12 @@ class _HomePageState extends State<HomePage> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, '');
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HargaScreen(),
+                                ),
+                              );
                           },
                           child: Category(
                               imagePath: "assets/icons/coins.png",
@@ -167,7 +173,12 @@ class _HomePageState extends State<HomePage> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, '');
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PromoScreen(),
+                                ),
+                              );
                           },
                           child: Category(
                               imagePath: "assets/icons/question.png",
