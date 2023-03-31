@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:e_service/widget/category.dart';
 import 'package:e_service/widget/konten.dart';
+import 'package:e_service/homePageNav/notification.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -90,13 +91,20 @@ class _HomePageState extends State<HomePage> {
                               )
                             ],
                           ),
-                          Container(
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationScreen(),
+                              ),
+                              );
+                            },
+                          child: Container(
                               alignment: Alignment.topRight,
                               child: Icon(
                                 Icons.notifications_active,
                                 color: Colors.white,
                                 size: 30,
                               )),
+                          )
                         ],
                       ),
                     ),
