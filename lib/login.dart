@@ -9,8 +9,10 @@ class MyLogin extends StatefulWidget {
 
 class _MyLoginState extends State<MyLogin> {
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   bool isEmailValid = false;
+  bool isPasswordValid = false;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +68,7 @@ class _MyLoginState extends State<MyLogin> {
                 const SizedBox(
                   height: 30,
                 ),
-                TextField(
+                TextFormField(
                   obscureText: true,
                   decoration: InputDecoration(
                     fillColor: Colors.transparent,
@@ -81,6 +83,11 @@ class _MyLoginState extends State<MyLogin> {
                           color: Color.fromARGB(248, 27, 27, 27)),
                     ),
                   ),
+                  onChanged: (value) {
+                    setState(() {
+                      isPasswordValid = value.length > 8;
+                    });
+                  },
                 ),
                 const SizedBox(
                   height: 40,
@@ -94,24 +101,27 @@ class _MyLoginState extends State<MyLogin> {
                       child: IconButton(
                         color: Colors.blue,
                         onPressed: () {
-                          if (isEmailValid){
-                          Navigator.pushReplacementNamed(context, 'bottom');
-                        } else{
-                          showDialog(context: context, builder: (BuildContext context){
-                            return AlertDialog(
-                              title: Text('Error'),
-                              content: Text('Email harus diisi sebelum login'),
-                              actions: <Widget>[
-                                TextButton(onPressed: (){
-                                  Navigator.of(context).pop();
-                                },
-                                child: Text('OK'),
-                                ),
-                              ],
+                          if (isPasswordValid && isEmailValid) {
+                            Navigator.pushReplacementNamed(context, 'bottom');
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Error'),
+                                  content: Text('Email atau Password Salah!'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text('OK'),
+                                    ),
+                                  ],
+                                );
+                              },
                             );
-                          },
-                          );
-                        }
+                          }
                         },
                         icon: const Icon(Icons.arrow_forward),
                       ),

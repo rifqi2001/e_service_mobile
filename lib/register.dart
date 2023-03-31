@@ -8,6 +8,13 @@ class MyRegister extends StatefulWidget {
 }
 
 class _MyRegisterState extends State<MyRegister> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  bool isNameValid = false;
+  bool isEmailValid = false;
+  bool isPasswordValid = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,14 +31,18 @@ class _MyRegisterState extends State<MyRegister> {
         body: Stack(children: [
           Align(
             alignment: Alignment.topCenter,
-              child: Container(
+            child: Container(
               padding: const EdgeInsets.only(top: 80),
               child: const Text(
                 "Sign Up",
-                style: TextStyle(color: Color.fromARGB(255, 27, 27, 27), fontSize: 40, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
-                ),
+                style: TextStyle(
+                    color: Color.fromARGB(255, 27, 27, 27),
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Poppins'),
               ),
             ),
+          ),
           SingleChildScrollView(
             child: Container(
               padding: EdgeInsets.only(
@@ -40,37 +51,44 @@ class _MyRegisterState extends State<MyRegister> {
                   top: MediaQuery.of(context).size.height * 0.27),
               child: Column(children: [
                 TextField(
-                  decoration: InputDecoration(
-                    // focusedBorder: OutlineInputBorder(
-                    //   borderRadius: BorderRadius.circular(25),
-                    //   borderSide: const BorderSide(color: Colors.black),
-                    // ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Color.fromARGB(255, 27, 27, 27)),
-                    ),
-                    hintText: 'Name',
-                    hintStyle: const TextStyle(color: Color.fromARGB(255, 27, 27, 27)),
-                    prefixIcon: Icon(Icons.person)
-                  ),
-                ),
+                    decoration: InputDecoration(
+                        // focusedBorder: OutlineInputBorder(
+                        //   borderRadius: BorderRadius.circular(25),
+                        //   borderSide: const BorderSide(color: Colors.black),
+                        // ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 27, 27, 27)),
+                        ),
+                        hintText: 'Name',
+                        hintStyle: const TextStyle(
+                            color: Color.fromARGB(255, 27, 27, 27)),
+                        prefixIcon: Icon(Icons.person)),
+                    onChanged: (value) {
+                      setState(() {
+                        isNameValid = value.isNotEmpty;
+                      });
+                    }),
                 const SizedBox(
                   height: 30,
                 ),
                 TextField(
                   decoration: InputDecoration(
-                    // focusedBorder: OutlineInputBorder(
-                    //   borderRadius: BorderRadius.circular(25),
-                    //   borderSide: const BorderSide(color: Colors.black),
-                    // ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Color.fromARGB(255, 27, 27, 27)),
-                    ),
-                    hintText: 'Email',
-                    hintStyle: const TextStyle(color: Color.fromARGB(255, 27, 27, 27)),
-                    prefixIcon: Icon(Icons.mail)
-                  ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 27, 27, 27)),
+                      ),
+                      hintText: 'Email',
+                      hintStyle: const TextStyle(
+                          color: Color.fromARGB(255, 27, 27, 27)),
+                      prefixIcon: Icon(Icons.mail)),
+                  onChanged: (value) {
+                    setState(() {
+                      isEmailValid = value.isNotEmpty && value.contains('@');
+                    });
+                  },
                 ),
                 const SizedBox(
                   height: 30,
@@ -78,18 +96,20 @@ class _MyRegisterState extends State<MyRegister> {
                 TextField(
                   obscureText: true,
                   decoration: InputDecoration(
-                    // focusedBorder: OutlineInputBorder(
-                    //   borderRadius: BorderRadius.circular(25),
-                    //   borderSide: const BorderSide(color: Colors.black),
-                    // ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                      borderSide: const BorderSide(color: Color.fromARGB(255, 27, 27, 27)),
-                    ),
-                    hintText: 'Password',
-                    hintStyle: const TextStyle(color: Color.fromARGB(255, 27, 27, 27)),
-                    prefixIcon: Icon(Icons.lock)
-                  ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 27, 27, 27)),
+                      ),
+                      hintText: 'Password',
+                      hintStyle: const TextStyle(
+                          color: Color.fromARGB(255, 27, 27, 27)),
+                      prefixIcon: Icon(Icons.lock)),
+                  onChanged: (value) {
+                    setState(() {
+                      isPasswordValid = value.length > 8;
+                    });
+                  },
                 ),
                 const SizedBox(
                   height: 40,
@@ -103,7 +123,32 @@ class _MyRegisterState extends State<MyRegister> {
                         child: IconButton(
                           color: Colors.blue,
                           onPressed: () {
-                            Navigator.pushNamedAndRemoveUntil(context, 'bottom', (route) => false);
+                            if (isPasswordValid && isEmailValid && isNameValid){
+                                Navigator.pushNamedAndRemoveUntil(
+                                  context, 
+                                  'bottom', 
+                                  (Route<dynamic> route) => false,
+                                );
+                              }
+                            else {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Error'),
+                                    content: Text('Nama, Email atau Password Tidak Valid!'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text('OK'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
                           },
                           icon: const Icon(Icons.arrow_forward),
                         ),

@@ -104,31 +104,40 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 25),
-              child: Row(
-                children: [
-                  Category(
-                      imagePath: "assets/icons/cuci.png", title: "Cuci AC"),
-                  Category(
-                      imagePath: "assets/icons/bongkar-pasang.png",
-                      title: "Perbaikan AC"),
-                  Category(
-                      imagePath: "assets/icons/ac.png", title: "Pasang AC"),
-                ],
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Category(imagePath: "assets/icons/cuci.png", title: "Cuci AC"),
+                        Category(
+                          imagePath: "assets/icons/bongkar-pasang.png",
+                          title: "Perbaikan AC",
+                        ),
+                        Category(imagePath: "assets/icons/ac.png", title: "Pasang AC"),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 25),
-              child: Row(
-                children: [
-                  Category(imagePath: "assets/icons/price.png", title: "Promo"),
-                  Category(
-                      imagePath: "assets/icons/coins.png", title: "Cek Harga"),
-                  Category(
-                      imagePath: "assets/icons/question.png", title: "Bantuan"),
-                ],
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 25),
+                    child: Row(
+                      children: [
+                        Category(imagePath: "assets/icons/price.png", title: "Promo"),
+                        Category(imagePath: "assets/icons/coins.png", title: "Cek Harga"),
+                        Category(imagePath: "assets/icons/question.png", title: "Bantuan"),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(15),
@@ -180,21 +189,24 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Santana')),
             ),
-            Content(
-              imagePath: "assets/images/winter.jpg",
-              judul: "Paket Penawaran Langganan",
-              desc: "Membeli langganan perawatan AC agar lebih hemat",
-            ),
-            Content(
-              imagePath: "assets/images/banner1.png",
-              judul: "Diskon pemesanan Service AC",
-              desc:
-                  "Dapatkan dengan cara minimal pemesanan 3 AC dan\ndapatkan diskon up to 10%",
-            ),
-            Content(
-              imagePath: "assets/images/teknisi.png",
-              judul: "Teknisi",
-              desc: "Kami memilih Teknisi yang berpengalaman dan terpercaya",
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Content(
+                    imagePath: "assets/images/banner4.png",
+                  ),
+                    Content(
+                    imagePath: "assets/images/banner3.png",
+                  ),
+                    Content(
+                    imagePath: "assets/images/banner2.png",
+                  ),
+                  Content(
+                    imagePath: "assets/images/banner1.png",
+                  ),
+                ],
+              ),
             ),
           ],
         )),
