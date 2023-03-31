@@ -7,6 +7,7 @@ import 'package:e_service/homePageNav/pricing.dart';
 import 'package:e_service/homePageNav/help.dart';
 import 'package:e_service/homePageNav/cleaning.dart';
 import 'package:e_service/homePageNav/fixing.dart';
+import 'package:e_service/homePageNav/pairing.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -153,12 +154,12 @@ class _HomePageState extends State<HomePage> {
                         ),
                         InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //       builder: (context) => PasangAcScreen(),
-                            //     ),
-                            //   );
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PasangAcScreen(),
+                                ),
+                              );
                           },
                           child: Category(
                               imagePath: "assets/icons/ac.png",
