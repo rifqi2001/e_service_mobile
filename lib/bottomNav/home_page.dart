@@ -95,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationScreen(),
                               ),
-                              );
+                              );  
                             },
                           child: Container(
                               alignment: Alignment.topRight,
@@ -174,7 +174,12 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => NotificationScreen()),
+                        );
+                        },
                         style: ElevatedButton.styleFrom(
                           textStyle: TextStyle(fontSize: 12),
                           minimumSize: Size(60, 25),
