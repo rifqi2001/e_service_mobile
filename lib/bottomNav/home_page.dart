@@ -5,6 +5,7 @@ import 'package:e_service/homePageNav/notification.dart';
 import 'package:e_service/homePageNav/promo.dart';
 import 'package:e_service/homePageNav/pricing.dart';
 import 'package:e_service/homePageNav/help.dart';
+import 'package:e_service/homePageNav/cleaning.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -123,16 +124,45 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(left: 25),
                     child: Row(
                       children: [
-                        Category(
-                            imagePath: "assets/icons/cuci.png",
-                            title: "Cuci AC"),
-                        Category(
-                          imagePath: "assets/icons/bongkar-pasang.png",
-                          title: "Perbaikan AC",
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CuciAcScreen(),
+                                ),
+                              );
+                          },
+                          child: Category(
+                              imagePath: "assets/icons/cuci.png",
+                              title: "Cuci AC"),
                         ),
-                        Category(
-                            imagePath: "assets/icons/ac.png",
-                            title: "Pasang AC"),
+                        InkWell(
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) => PerbaikanAcScreen(),
+                            //     ),
+                            //   );
+                          },
+                          child: Category(
+                              imagePath: "assets/icons/bongkar-pasang.png",
+                              title: "Perbaikan AC"),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //       builder: (context) => PasangAcScreen(),
+                            //     ),
+                            //   );
+                          },
+                          child: Category(
+                              imagePath: "assets/icons/ac.png",
+                              title: "Pasang AC"),
+                        ),
                       ],
                     ),
                   ),
