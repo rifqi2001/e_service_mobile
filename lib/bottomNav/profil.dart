@@ -88,16 +88,13 @@ class _HomePageState extends State<Profil> {
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.bold),
                           backgroundColor: Color.fromARGB(255, 0, 62, 112),
+                          padding: EdgeInsets.symmetric(horizontal: 15.0)
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                      child: IconButton(
-                        icon: Icon(Icons.delete),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      ElevatedButton(
                         onPressed: () async {
                           final prefs = await SharedPreferences.getInstance();
                           prefs.remove('imagePath');
@@ -105,8 +102,15 @@ class _HomePageState extends State<Profil> {
                             _image = null;
                           });
                         },
-                        color: Color.fromARGB(255, 0, 62, 112),
-                      ),
+                        child: Text('Hapus Foto'),
+                        style: ElevatedButton.styleFrom(
+                          textStyle: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold),
+                          backgroundColor: Color.fromARGB(255, 192, 13, 0),
+                          padding: EdgeInsets.symmetric(horizontal: 15.0)
+                        ),
                       ),
                     ],
                   ),

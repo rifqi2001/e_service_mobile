@@ -5,9 +5,7 @@ import 'package:e_service/homePageNav/notification.dart';
 import 'package:e_service/homePageNav/promo.dart';
 import 'package:e_service/homePageNav/pricing.dart';
 import 'package:e_service/homePageNav/help.dart';
-import 'package:e_service/homePageNav/cleaning.dart';
-import 'package:e_service/homePageNav/fixing.dart';
-import 'package:e_service/homePageNav/pairing.dart';
+import 'package:e_service/homePageNav/order.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -123,73 +121,22 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 25),
+                    padding: const EdgeInsets.only(left: 0),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         InkWell(
                           onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => CuciAcScreen(),
-                                ),
-                              );
-                          },
-                          child: Category(
-                              imagePath: "assets/icons/cuci.png",
-                              title: "Cuci AC"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PerbaikanAcScreen(),
-                                ),
-                              );
-                          },
-                          child: Category(
-                              imagePath: "assets/icons/bongkar-pasang.png",
-                              title: "Perbaikan AC"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PasangAcScreen(),
+                                  builder: (context) => PesanScreen(),
                                 ),
                               );
                           },
                           child: Category(
                               imagePath: "assets/icons/ac.png",
-                              title: "Pasang AC"),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 25),
-                    child: Row(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PromoScreen(),
-                                ),
-                              );
-                          },
-                          child: Category(
-                              imagePath: "assets/icons/price.png",
-                              title: "Promo"),
+                              title: "Pesan"),
                         ),
                         InkWell(
                           onTap: () {
@@ -201,9 +148,37 @@ class _HomePageState extends State<HomePage> {
                               );
                           },
                           child: Category(
-                              imagePath: "assets/icons/coins.png",
+                              imagePath: "assets/icons/price2.png",
                               title: "Cek Harga"),
                         ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PromoScreen(),
+                                ),
+                              );
+                          },
+                          child: Category(
+                              imagePath: "assets/icons/discount2.png",
+                              title: "Promo"),
+                        ),
+                        
                         InkWell(
                           onTap: () {
                             Navigator.push(
@@ -214,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                               );
                           },
                           child: Category(
-                              imagePath: "assets/icons/question.png",
+                              imagePath: "assets/icons/help2.png",
                               title: "Bantuan"),
                         )
                       ],

@@ -12,7 +12,7 @@ void main() {
         debugShowCheckedModeBanner: false,
         initialRoute: 'bottom',
         theme: ThemeData(
-        fontFamily: 'Poppins',  
+        fontFamily: 'Poppins',   
       ),
         routes: {
           'login': (context) => const MyLogin(),

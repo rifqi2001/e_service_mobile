@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class PasangAcScreen extends StatefulWidget {
+class PesanScreen extends StatefulWidget {
   @override
-  _PesangAcScreenState createState() => _PesangAcScreenState();
+  _PesanScreenState createState() => _PesanScreenState();
 }
 
-class _PesangAcScreenState extends State<PasangAcScreen> {
+class _PesanScreenState extends State<PesanScreen> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bongkar & Pasang AC'),
+        title: Text('Pemesanan'),
         backgroundColor: Color.fromARGB(255, 101, 203, 233),
       ),
     );
