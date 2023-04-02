@@ -118,7 +118,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             Row(
-              children: [
+              children: [  
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 0),
@@ -128,24 +128,23 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PesanScreen(),
-                                ),
-                              );
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PesanScreen(),
+                              ),
+                            );
                           },
                           child: Category(
-                              imagePath: "assets/icons/ac.png",
-                              title: "Pesan"),
+                              imagePath: "assets/icons/ac.png", title: "Pesan"),
                         ),
                         InkWell(
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => HargaScreen(),
-                                ),
-                              );
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HargaScreen(),
+                              ),
+                            );
                           },
                           child: Category(
                               imagePath: "assets/icons/price2.png",
@@ -168,25 +167,24 @@ class _HomePageState extends State<HomePage> {
                         InkWell(
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PromoScreen(),
-                                ),
-                              );
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PromoScreen(),
+                              ),
+                            );
                           },
                           child: Category(
                               imagePath: "assets/icons/discount2.png",
                               title: "Promo"),
                         ),
-                        
                         InkWell(
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => BantuanScreen(),
-                                ),
-                              );
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => BantuanScreen(),
+                              ),
+                            );
                           },
                           child: Category(
                               imagePath: "assets/icons/help2.png",
@@ -247,20 +245,61 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.only(top: 20,left: 15,bottom: 10),
               child: Text("Informasi untuk Pengguna!",
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Santana')),
             ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 5, left: 15,),
+              child: Text(
+                "Nikmati pelayanan dari teknisi berpegalaman dan terpercaya. Pesan sekarang juga!",
+                style: TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
                   Content(
+                    imagePath: "assets/images/banner6.png",
+                  ),
+                  Content(
                     imagePath: "assets/images/banner4.png",
                   ),
+                  Content(
+                    imagePath: "assets/images/banner5.png",
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20,left: 15,bottom: 10),
+              child: Text("Ada Promo untuk pengguna baru!",
+              style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Santana')),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 5, left: 15),
+              child: Text(
+                "Dapatkan diskon nya sekarang juga! S&K berlaku",
+                style: TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
                   Content(
                     imagePath: "assets/images/banner3.png",
                   ),
@@ -276,7 +315,6 @@ class _HomePageState extends State<HomePage> {
           ],
         )),
       ),
-      // bottomNavigationBar: _bottomNavBar,
     );
   }
 }
