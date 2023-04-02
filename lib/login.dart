@@ -19,7 +19,7 @@ class _MyLoginState extends State<MyLogin> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/cover1.jpg'), fit: BoxFit.cover),
+            image: AssetImage('assets/images/log3.jpeg'), fit: BoxFit.fill),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -93,15 +93,11 @@ class _MyLoginState extends State<MyLogin> {
                   height: 40,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Color.fromARGB(255, 210, 210, 210),
-                      child: IconButton(
-                        color: Colors.blue,
-                        onPressed: () {
-                          if (isPasswordValid && isEmailValid) {
+                    ElevatedButton(
+                      onPressed: () {
+                        if (isPasswordValid && isEmailValid) {
                             Navigator.pushReplacementNamed(context, 'bottom');
                           } else {
                             showDialog(
@@ -122,8 +118,18 @@ class _MyLoginState extends State<MyLogin> {
                               },
                             );
                           }
-                        },
-                        icon: const Icon(Icons.arrow_forward),
+                      },
+                      child: Text(
+                        'Submit',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.transparent,
+                        minimumSize: Size(150, 50),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                          side: BorderSide(color: Colors.black12)
+                        )
                       ),
                     ),
                   ],
@@ -143,8 +149,7 @@ class _MyLoginState extends State<MyLogin> {
                           style: TextStyle(
                             decoration: TextDecoration.underline,
                             fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -157,8 +162,7 @@ class _MyLoginState extends State<MyLogin> {
                           style: TextStyle(
                             decoration: TextDecoration.underline,
                             fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: Colors.white,
                           ),
                         ),
                       ),

@@ -57,6 +57,7 @@ class _HomePageState extends State<Profil> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: 45),
                 CircleAvatar(
                   radius: 80,
                   backgroundImage: _image != null
@@ -69,82 +70,154 @@ class _HomePageState extends State<Profil> {
                 Text(
                   'Users',
                   style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
                 SizedBox(height: 25),
                 Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                        onPressed: _getImageFromGallery,
-                        child: Text('Ubah Foto'),
-                        style: ElevatedButton.styleFrom(
-                          textStyle: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.bold),
-                          backgroundColor: Color.fromARGB(255, 0, 62, 112),
-                          padding: EdgeInsets.symmetric(horizontal: 15.0)
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      ElevatedButton(
-                        onPressed: () async {
-                          final prefs = await SharedPreferences.getInstance();
-                          prefs.remove('imagePath');
-                          setState(() {
-                            _image = null;
-                          });
-                        },
-                        child: Text('Hapus Foto'),
-                        style: ElevatedButton.styleFrom(
-                          textStyle: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.bold),
-                          backgroundColor: Color.fromARGB(255, 192, 13, 0),
-                          padding: EdgeInsets.symmetric(horizontal: 15.0)
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Ubah Nama',
-                    hintText: 'Masukkan nama baru',
-                  ),
-                ),
-                SizedBox(height: 20),
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Ubah Password',
-                    hintText: 'Masukkan password baru',
-                  ),
-                ),
-                SizedBox(height: 20),
-                TextFormField(
-                  decoration: InputDecoration(
-                    labelText: 'Atur Alamat Rumah',
-                    hintText: 'Masukkan alamat rumah',
-                  ),
-                ),
-                SizedBox(height: 60),
+  child: Row(
+    children: [
+      Expanded(
+        child: ElevatedButton(
+          onPressed: _getImageFromGallery,
+          style: ElevatedButton.styleFrom(
+            textStyle: TextStyle(
+              fontSize: 14,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold,
+            ),
+            backgroundColor: Color.fromARGB(255, 0, 62, 112),
+            padding: EdgeInsets.symmetric(horizontal: 15.0),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.camera_alt_outlined),
+              SizedBox(width: 8.0),
+              Text('Ubah Foto'),
+            ],
+          ),
+        ),
+      ),
+      SizedBox(width: 10),
+      Expanded(
+        child: ElevatedButton(
+          onPressed: () async {
+            final prefs = await SharedPreferences.getInstance();
+            prefs.remove('imagePath');
+            setState(() {
+              _image = null;
+            });
+          },
+          child: Row(
+            children: [
+              Icon(Icons.delete),
+              SizedBox(width: 5),
+              Text('Hapus Foto'),
+            ],
+          ),
+          style: ElevatedButton.styleFrom(
+            textStyle: TextStyle(
+              fontSize: 14,
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold,
+            ),
+            backgroundColor: Color.fromARGB(255, 192, 13, 0),
+            padding: EdgeInsets.symmetric(horizontal: 15.0),
+          ),
+        ),
+      ),
+    ],
+  ),
+),
+
+                // SizedBox(height: 20),
+                // TextFormField(
+                //   decoration: InputDecoration(
+                //     labelText: 'Ubah Nama',
+                //     hintText: 'Masukkan nama baru',
+                //   ),
+                // ),
+                // SizedBox(height: 20),
+                // TextFormField(
+                //   decoration: InputDecoration(
+                //     labelText: 'Ubah Password',
+                //     hintText: 'Masukkan password baru',
+                //   ),
+                // ),
+                // SizedBox(height: 20),
+                // TextFormField(
+                //   decoration: InputDecoration(
+                //     labelText: 'Atur Alamat Rumah',
+                //     hintText: 'Masukkan alamat rumah',
+                //   ),
+                // ),
                 ElevatedButton(
                   onPressed: () {},
-                  child: Text('Simpan'),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: [
+                        Icon(Icons.update,
+                            color: Color.fromARGB(255, 0, 62, 112)),
+                        SizedBox(width: 10),
+                        Text(
+                          'Update Profil',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 0, 62, 112),
+                              fontSize: 14,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                      textStyle: TextStyle(),
+                      backgroundColor: Colors.white,
+                      padding: EdgeInsets.symmetric(horizontal: 15.0)),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.3,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Sign Out'),
+                          content: Text('Are you sure you want to sign out?'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop(false);
+                              },
+                              child: Text('No'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushNamedAndRemoveUntil(
+                                  context, 
+                                  'login', 
+                                  (Route<dynamic> route) => false,
+                                );
+                              },
+                              child: Text('Yes'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: Text('SIGN OUT'),
                   style: ElevatedButton.styleFrom(
                     textStyle: TextStyle(
-                        fontSize: 14,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold),
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.bold,
+                    ),
                     backgroundColor: Color.fromARGB(255, 0, 62, 112),
                   ),
                 ),

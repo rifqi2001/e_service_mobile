@@ -20,7 +20,7 @@ class _MyRegisterState extends State<MyRegister> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/cover1.jpg'), fit: BoxFit.cover),
+            image: AssetImage('assets/images/log3.jpeg'), fit: BoxFit.fill),
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -115,15 +115,11 @@ class _MyRegisterState extends State<MyRegister> {
                   height: 40,
                 ),
                 Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CircleAvatar(
-                        radius: 30,
-                        backgroundColor: Color.fromARGB(255, 210, 210, 210),
-                        child: IconButton(
-                          color: Colors.blue,
-                          onPressed: () {
-                            if (isPasswordValid && isEmailValid && isNameValid){
+                      ElevatedButton(
+                      onPressed: () {
+                        if (isPasswordValid && isEmailValid && isNameValid){
                                 Navigator.pushNamedAndRemoveUntil(
                                   context, 
                                   'bottom', 
@@ -149,10 +145,56 @@ class _MyRegisterState extends State<MyRegister> {
                                 },
                               );
                             }
-                          },
-                          icon: const Icon(Icons.arrow_forward),
-                        ),
+                      },
+                      child: Text(
+                        'Submit',
+                        style: TextStyle(color: Colors.white),
                       ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.transparent,
+                        minimumSize: Size(150, 50),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                          side: BorderSide(color: Colors.black12)
+                        )
+                      ),
+                    ),
+                      // CircleAvatar(
+                      //   radius: 30,
+                      //   backgroundColor: Color.fromARGB(255, 210, 210, 210),
+                      //   child: IconButton(
+                      //     color: Colors.blue,
+                      //     onPressed: () {
+                      //       if (isPasswordValid && isEmailValid && isNameValid){
+                      //           Navigator.pushNamedAndRemoveUntil(
+                      //             context, 
+                      //             'bottom', 
+                      //             (Route<dynamic> route) => false,
+                      //           );
+                      //         }
+                      //       else {
+                      //         showDialog(
+                      //           context: context,
+                      //           builder: (BuildContext context) {
+                      //             return AlertDialog(
+                      //               title: Text('Error'),
+                      //               content: Text('Nama, Email atau Password Tidak Valid!'),
+                      //               actions: <Widget>[
+                      //                 TextButton(
+                      //                   onPressed: () {
+                      //                     Navigator.of(context).pop();
+                      //                   },
+                      //                   child: Text('OK'),
+                      //                 ),
+                      //               ],
+                      //             );
+                      //           },
+                      //         );
+                      //       }
+                      //     },
+                      //     icon: const Icon(Icons.arrow_forward),
+                      //   ),
+                      // ),
                     ]),
                 const SizedBox(
                   height: 40,
