@@ -5,75 +5,85 @@ class ListPrice extends StatelessWidget {
   final String title;
   final String harga;
   final String estimasi;
-  const ListPrice(
-      {Key? key,
-      required this.imagePath,
-      required this.title,
-      required this.harga,
-      required this.estimasi})
-      : super(key: key);
+
+  const ListPrice({
+    Key? key,
+    required this.imagePath,
+    required this.title,
+    required this.harga,
+    required this.estimasi,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: double.infinity,
-        height: 240,
-        child: Stack(
-          children: [
-            Card(
-              clipBehavior: Clip.antiAliasWithSaveLayer,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              elevation: 10,
-              child: Column(
-                children: [
-                  SizedBox(
-                      width: double.infinity,
-                      height: 150,
-                      child: Image.asset(imagePath, fit: BoxFit.cover))
-                ],
+      height: 140,
+      child: Card(
+        clipBehavior: Clip.antiAliasWithSaveLayer,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25),
+        ),
+        elevation: 10,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Stack(
+            children: [
+              SizedBox(
+                width: 240,
+                height: double.infinity,
+                child: ColorFiltered(
+                  colorFilter: ColorFilter.mode(
+                    Colors.black26,
+                    BlendMode.darken,
+                  ), // ubah warna dan mode filter sesuai kebutuhan
+                  child: Image.asset(
+                    imagePath,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
-            Positioned(
-                bottom: 0,
-                left: 10,
-                child: SizedBox(
-                  height: 70,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(title,
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.bold)),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            Icon(Icons.money, color: Colors.green),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(harga,
-                                style: TextStyle(fontSize: 12)),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Icon(Icons.access_time, color: Colors.amber),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(estimasi,
-                                style: TextStyle(fontSize: 12))
-                          ],
-                        )
-                      ],
+              Positioned(
+                left: 0,
+                right: 0,
+                top: 50,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    title,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                )),
-          ],
-        ));
+                ),
+              ),
+              Positioned(
+                left: 10,
+                bottom: 10,
+                child: Row(
+                  children: [
+                    Icon(Icons.attach_money, color: Colors.white,),
+                    SizedBox(width: 5),
+                    Text(harga, style: TextStyle(color: Colors.white),),
+                  ],
+                ),
+              ),
+              Positioned(
+                left: 10,
+                bottom: 30,
+                child: Row(
+                  children: [
+                    Icon(Icons.timer, color: Colors.white,),
+                    SizedBox(width: 5),
+                    Text(estimasi, style: TextStyle(color: Colors.white),),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

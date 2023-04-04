@@ -48,8 +48,8 @@ class _HomePageState extends State<Profil> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/profil-bg.png'),
-              fit: BoxFit.cover,
+              image: AssetImage('assets/images/bg-profil2.png'),
+              fit: BoxFit.fill,
             ),
           ),
           child: Padding(
@@ -74,63 +74,62 @@ class _HomePageState extends State<Profil> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
-                SizedBox(height: 25),
-                Center(
-  child: Row(
-    children: [
-      Expanded(
-        child: ElevatedButton(
-          onPressed: _getImageFromGallery,
-          style: ElevatedButton.styleFrom(
-            textStyle: TextStyle(
-              fontSize: 14,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.bold,
-            ),
-            backgroundColor: Color.fromARGB(255, 0, 62, 112),
-            padding: EdgeInsets.symmetric(horizontal: 15.0),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.camera_alt_outlined),
-              SizedBox(width: 8.0),
-              Text('Ubah Foto'),
-            ],
-          ),
-        ),
-      ),
-      SizedBox(width: 10),
-      Expanded(
-        child: ElevatedButton(
-          onPressed: () async {
-            final prefs = await SharedPreferences.getInstance();
-            prefs.remove('imagePath');
-            setState(() {
-              _image = null;
-            });
-          },
-          child: Row(
-            children: [
-              Icon(Icons.delete),
-              SizedBox(width: 5),
-              Text('Hapus Foto'),
-            ],
-          ),
-          style: ElevatedButton.styleFrom(
-            textStyle: TextStyle(
-              fontSize: 14,
-              fontFamily: 'Poppins',
-              fontWeight: FontWeight.bold,
-            ),
-            backgroundColor: Color.fromARGB(255, 192, 13, 0),
-            padding: EdgeInsets.symmetric(horizontal: 15.0),
-          ),
-        ),
-      ),
-    ],
-  ),
-),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextButton(
+                        onPressed: _getImageFromGallery,
+                        style: TextButton.styleFrom(
+                          textStyle: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.camera_alt_outlined, color: Colors.green,),
+                            SizedBox(width: 8.0),
+                            Text('Ubah Foto', style: TextStyle(color: Colors.grey)),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () async {
+                          final prefs = await SharedPreferences.getInstance();
+                          prefs.remove('imagePath');
+                          setState(() {
+                            _image = null;
+                          });
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.delete, color: Colors.red,),
+                            SizedBox(width: 5),
+                            Text('Hapus Foto', style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
+                        ),
+                        style: TextButton.styleFrom(
+                          textStyle: TextStyle(
+                            fontSize: 14,
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.bold,
+                          ),
+                          backgroundColor: Colors.transparent,
+                          padding: EdgeInsets.symmetric(horizontal: 15.0),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
 
                 // SizedBox(height: 20),
                 // TextFormField(
@@ -153,19 +152,20 @@ class _HomePageState extends State<Profil> {
                 //     hintText: 'Masukkan alamat rumah',
                 //   ),
                 // ),
-                ElevatedButton(
+                TextButton(
                   onPressed: () {},
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.update,
-                            color: Color.fromARGB(255, 0, 62, 112)),
+                        Icon(Icons.edit,
+                            color: Colors.blue),
                         SizedBox(width: 10),
                         Text(
                           'Update Profil',
                           style: TextStyle(
-                              color: Color.fromARGB(255, 0, 62, 112),
+                              color: Colors.grey,
                               fontSize: 14,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.bold),
@@ -173,13 +173,39 @@ class _HomePageState extends State<Profil> {
                       ],
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
+                  style: TextButton.styleFrom(
                       textStyle: TextStyle(),
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.transparent,
+                      padding: EdgeInsets.symmetric(horizontal: 15.0)),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.location_pin,
+                            color: Colors.yellow),
+                        SizedBox(width: 10),
+                        Text(
+                          'Atur Alamat',
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14,
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ),
+                  style: TextButton.styleFrom(
+                      textStyle: TextStyle(),
+                      backgroundColor: Colors.transparent,
                       padding: EdgeInsets.symmetric(horizontal: 15.0)),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.25,
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -199,8 +225,8 @@ class _HomePageState extends State<Profil> {
                             TextButton(
                               onPressed: () {
                                 Navigator.pushNamedAndRemoveUntil(
-                                  context, 
-                                  'login', 
+                                  context,
+                                  'login',
                                   (Route<dynamic> route) => false,
                                 );
                               },
@@ -218,7 +244,7 @@ class _HomePageState extends State<Profil> {
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold,
                     ),
-                    backgroundColor: Color.fromARGB(255, 0, 62, 112),
+                    backgroundColor: Colors.blue,
                   ),
                 ),
               ],

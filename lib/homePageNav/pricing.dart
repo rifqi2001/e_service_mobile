@@ -33,29 +33,36 @@ class _HargaScreenState extends State<HargaScreen> {
             SizedBox(
               height: 10,
             ),
-            ListPrice(
-              imagePath: "assets/images/banner6.png",
-              title: "Cuci AC",
-              harga: "RP 70.000",
-              estimasi: "1 - 2 jam",
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            ListPrice(
-              imagePath: "assets/images/banner5.png",
-              title: "Perbaikan AC",
-              harga: "RP 100.000",
-              estimasi: "1 - 2 jam",
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            ListPrice(
-              imagePath: "assets/images/banner4.png",
-              title: "Bongkar & Pasang AC",
-              harga: "RP 150.000",
-              estimasi: "1 - 2 jam",
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ListPrice(
+                    imagePath: "assets/images/clean.jpg",
+                    title: "Cuci AC",
+                    harga: "RP 70.000",
+                    estimasi: "1 - 2 jam",
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ListPrice(
+                    imagePath: "assets/images/fix-ac.jpg",
+                    title: "Perbaikan AC",
+                    harga: "RP 100.000",
+                    estimasi: "1 - 2 jam",
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  ListPrice(
+                    imagePath: "assets/images/install.jpg",
+                    title: "Bongkar & Pasang AC",
+                    harga: "RP 150.000",
+                    estimasi: "1 - 2 jam",
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 40,
