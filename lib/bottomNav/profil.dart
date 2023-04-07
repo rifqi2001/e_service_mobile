@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:e_service/profileNav/aturAlamat.dart';
 import 'package:e_service/profileNav/alamat.dart';
+import 'package:e_service/profileNav/update.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -140,30 +141,13 @@ class _HomePageState extends State<Profil> {
                     )
                   ],
                 ),
-
-                // SizedBox(height: 20),
-                // TextFormField(
-                //   decoration: InputDecoration(
-                //     labelText: 'Ubah Nama',
-                //     hintText: 'Masukkan nama baru',
-                //   ),
-                // ),
-                // SizedBox(height: 20),
-                // TextFormField(
-                //   decoration: InputDecoration(
-                //     labelText: 'Ubah Password',
-                //     hintText: 'Masukkan password baru',
-                //   ),
-                // ),
-                // SizedBox(height: 20),
-                // TextFormField(
-                //   decoration: InputDecoration(
-                //     labelText: 'Atur Alamat Rumah',
-                //     hintText: 'Masukkan alamat rumah',
-                //   ),
-                // ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => UpdateProfile()),
+                    );
+                  },
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Row(
@@ -227,13 +211,13 @@ class _HomePageState extends State<Profil> {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           title: Text('Sign Out'),
-                          content: Text('Are you sure you want to sign out?'),
+                          content: Text('Apakah anda yakin ingin keluar akun?'),
                           actions: <Widget>[
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop(false);
                               },
-                              child: Text('No'),
+                              child: Text('Tidak'),
                             ),
                             TextButton(
                               onPressed: () {
@@ -243,7 +227,7 @@ class _HomePageState extends State<Profil> {
                                   (Route<dynamic> route) => false,
                                 );
                               },
-                              child: Text('Yes'),
+                              child: Text('Ya'),
                             ),
                           ],
                         );
@@ -257,7 +241,8 @@ class _HomePageState extends State<Profil> {
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold,
                     ),
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Colors.white,
+                    onPrimary: Colors.grey
                   ),
                 ),
               ],

@@ -47,7 +47,7 @@ class ListAc extends StatelessWidget {
                                 fontSize: 17, fontWeight: FontWeight.bold)),
                         Row(
                           children: [
-                            Icon(Icons.money, color: Colors.green),
+                            Icon(Icons.attach_money, color: Colors.green),
                             SizedBox(
                               width: 5,
                             ),

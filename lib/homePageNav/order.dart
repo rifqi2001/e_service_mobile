@@ -135,8 +135,8 @@ class _PesanScreenState extends State<PesanScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Pemesanan', style: TextStyle(color: Colors.black54),),
-          backgroundColor: Colors.white70,
+          title: Text('Pemesanan', style: TextStyle(color: Colors.white),),
+          backgroundColor: Color.fromARGB(255, 101, 203, 233),
           iconTheme: IconThemeData(color: Colors.white),
         ),
         body: SingleChildScrollView(
@@ -150,6 +150,10 @@ class _PesanScreenState extends State<PesanScreen> {
                 ElevatedButton(
                   onPressed: _addLayanan,
                   child: Text('Tambah Layanan'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    onPrimary: Color.fromARGB(255, 101, 203, 233),
+                  ),
                 ),
                 SizedBox(height: 16.0),
                 Text(
@@ -160,6 +164,9 @@ class _PesanScreenState extends State<PesanScreen> {
                     // Berdasarkan data yang diisi oleh pengguna
                   },
                   child: Text('Pesan'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 101, 203, 233),
+                  ),
                 ),
               ],
             ),
