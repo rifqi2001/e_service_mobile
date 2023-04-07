@@ -154,8 +154,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                             onPressed: _submitForm,
                             child: Text('Simpan Perubahan'),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              onPrimary: Color.fromARGB(255, 101, 203, 233),
+                              backgroundColor: Color.fromARGB(255, 101, 203, 233),
                             ),
                           ),
                         ])))));

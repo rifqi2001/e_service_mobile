@@ -7,9 +7,9 @@ class ContactPage extends StatefulWidget {
 }
 
 class _ContactPageState extends State<ContactPage> {
-  String name = '...';
-  String phone = '...';
-  String address = '...';
+  String name = '';
+  String phone = '';
+  String address = '';
 
   TextEditingController nameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
@@ -57,6 +57,7 @@ class _ContactPageState extends State<ContactPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Info Alamat'),
+        backgroundColor: Color.fromARGB(255, 101, 203, 233),
       ),
       body: Container(
         padding: EdgeInsets.all(16.0),
@@ -85,6 +86,9 @@ class _ContactPageState extends State<ContactPage> {
               child: ElevatedButton(
                 onPressed: _saveChanges,
                 child: Text('Simpan'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromARGB(255, 101, 203, 233),
+                ),
               ),
             ),
           ],

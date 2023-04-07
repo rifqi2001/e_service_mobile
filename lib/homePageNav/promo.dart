@@ -1,3 +1,4 @@
+import 'package:e_service/homePageNav/order.dart';
 import 'package:flutter/material.dart';
 
 class PromoScreen extends StatefulWidget {
@@ -41,8 +42,16 @@ class _PromoScreenState extends State<PromoScreen> {
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () {},
-              child: Text('Shop Now'),
+              onPressed: () {
+                Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => PesanScreen()),
+    );
+              },
+              child: Text('Pesan Sekarang'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 101, 203, 233),
+              ),
             ),
           ],
         ),
