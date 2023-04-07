@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:e_service/profileNav/aturAlamat.dart';
+import 'package:e_service/profileNav/alamat.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,7 +29,6 @@ class _HomePageState extends State<Profil> {
   @override
   void initState() {
     super.initState();
-// Load the saved image path from SharedPreferences
     _loadImagePath();
   }
 
@@ -92,9 +93,13 @@ class _HomePageState extends State<Profil> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.camera_alt_outlined, color: Colors.green,),
+                            Icon(
+                              Icons.camera_alt_outlined,
+                              color: Colors.green,
+                            ),
                             SizedBox(width: 8.0),
-                            Text('Ubah Foto', style: TextStyle(color: Colors.grey)),
+                            Text('Ubah Foto',
+                                style: TextStyle(color: Colors.grey)),
                           ],
                         ),
                       ),
@@ -111,9 +116,14 @@ class _HomePageState extends State<Profil> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.delete, color: Colors.red,),
+                            Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                            ),
                             SizedBox(width: 5),
-                            Text('Hapus Foto', style: TextStyle(color: Colors.grey),
+                            Text(
+                              'Hapus Foto',
+                              style: TextStyle(color: Colors.grey),
                             ),
                           ],
                         ),
@@ -159,8 +169,7 @@ class _HomePageState extends State<Profil> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.edit,
-                            color: Colors.blue),
+                        Icon(Icons.edit, color: Colors.blue),
                         SizedBox(width: 10),
                         Text(
                           'Update Profil',
@@ -179,14 +188,18 @@ class _HomePageState extends State<Profil> {
                       padding: EdgeInsets.symmetric(horizontal: 15.0)),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ContactPage()),
+                    );
+                  },
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.location_pin,
-                            color: Colors.yellow),
+                        Icon(Icons.location_pin, color: Colors.yellow),
                         SizedBox(width: 10),
                         Text(
                           'Atur Alamat',
