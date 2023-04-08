@@ -19,7 +19,7 @@ class _MyLoginState extends State<MyLogin> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/log3.jpeg'), fit: BoxFit.fill),
+            image: AssetImage('assets/images/light3.jpeg'), fit: BoxFit.fill),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -149,7 +149,7 @@ class _MyLoginState extends State<MyLogin> {
                           style: TextStyle(
                             decoration: TextDecoration.underline,
                             fontSize: 18,
-                            color: Colors.white,
+                            color: Color.fromARGB(248, 27, 27, 27),
                           ),
                         ),
                       ),
@@ -162,7 +162,7 @@ class _MyLoginState extends State<MyLogin> {
                           style: TextStyle(
                             decoration: TextDecoration.underline,
                             fontSize: 18,
-                            color: Colors.white,
+                            color: Color.fromARGB(248, 27, 27, 27),
                           ),
                         ),
                       ),

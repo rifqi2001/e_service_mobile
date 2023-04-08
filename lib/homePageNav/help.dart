@@ -74,6 +74,25 @@ class _BantuanScreenState extends State<BantuanScreen> {
                     ),
                   )
                 ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: <Widget>[
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 10.0)),
+                  Icon(
+                    Icons.phone_forwarded,
+                    color: Colors.blue[200],
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    'Kontak Kami',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  )
+                ],
               )
             ],
           ))

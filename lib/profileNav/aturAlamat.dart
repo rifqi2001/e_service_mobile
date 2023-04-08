@@ -42,12 +42,21 @@ class _ContactPageState extends State<ContactPage> {
       phone = phoneController.text;
       address = addressController.text;
     });
+
+    if (name.isEmpty || phone.isEmpty || address.isEmpty) {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('Harap lengkapi data alamat.'),
+      duration: Duration(seconds: 2),
+    ));
+    return;
+  }
+
     final prefs = await SharedPreferences.getInstance();
     prefs.setString('name', name);
     prefs.setString('phone', phone);
     prefs.setString('address', address);
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text('Changes saved.'),
+      content: Text('Perubahan telah disimpan'),
       duration: Duration(seconds: 2),
     ));
   }
@@ -64,22 +73,22 @@ class _ContactPageState extends State<ContactPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Nama'),
+            Text('Alamat'),
             SizedBox(height: 8.0),
             TextFormField(
-              controller: nameController,
+              controller: addressController,
             ),
             SizedBox(height: 16.0),
-            Text('No. Telepon'),
+            Text('Kota/Kabupaten'),
             SizedBox(height: 8.0),
             TextFormField(
               controller: phoneController,
             ),
             SizedBox(height: 16.0),
-            Text('Alamat'),
+            Text('Deskripsi Rumah'),
             SizedBox(height: 8.0),
             TextFormField(
-              controller: addressController,
+              controller: nameController,
             ),
             SizedBox(height: 32.0),
             Center(

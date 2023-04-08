@@ -20,7 +20,7 @@ class _MyRegisterState extends State<MyRegister> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/log3.jpeg'), fit: BoxFit.fill),
+            image: AssetImage('assets/images/light3.jpeg'), fit: BoxFit.fill),
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -159,42 +159,6 @@ class _MyRegisterState extends State<MyRegister> {
                         )
                       ),
                     ),
-                      // CircleAvatar(
-                      //   radius: 30,
-                      //   backgroundColor: Color.fromARGB(255, 210, 210, 210),
-                      //   child: IconButton(
-                      //     color: Colors.blue,
-                      //     onPressed: () {
-                      //       if (isPasswordValid && isEmailValid && isNameValid){
-                      //           Navigator.pushNamedAndRemoveUntil(
-                      //             context, 
-                      //             'bottom', 
-                      //             (Route<dynamic> route) => false,
-                      //           );
-                      //         }
-                      //       else {
-                      //         showDialog(
-                      //           context: context,
-                      //           builder: (BuildContext context) {
-                      //             return AlertDialog(
-                      //               title: Text('Error'),
-                      //               content: Text('Nama, Email atau Password Tidak Valid!'),
-                      //               actions: <Widget>[
-                      //                 TextButton(
-                      //                   onPressed: () {
-                      //                     Navigator.of(context).pop();
-                      //                   },
-                      //                   child: Text('OK'),
-                      //                 ),
-                      //               ],
-                      //             );
-                      //           },
-                      //         );
-                      //       }
-                      //     },
-                      //     icon: const Icon(Icons.arrow_forward),
-                      //   ),
-                      // ),
                     ]),
                 const SizedBox(
                   height: 40,

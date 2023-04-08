@@ -6,6 +6,7 @@ import 'package:e_service/homePageNav/promo.dart';
 import 'package:e_service/homePageNav/pricing.dart';
 import 'package:e_service/homePageNav/help.dart';
 import 'package:e_service/homePageNav/order.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,6 +16,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Widget> imageSliders = [
+    Image.asset('assets/images/banner6.png', fit: BoxFit.fill),
+    Image.asset('assets/images/banner4.png', fit: BoxFit.fill),
+    Image.asset('assets/images/banner7.png', fit: BoxFit.fill),
+  ];
+  List<Widget> imageSliders2 = [
+    Image.asset('assets/images/banner3.png', fit: BoxFit.fill),
+    Image.asset('assets/images/banner2.png', fit: BoxFit.fill),
+    Image.asset('assets/images/banner8.jpg', fit: BoxFit.fill),
+  ];
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -27,18 +39,19 @@ class _HomePageState extends State<HomePage> {
             Stack(
               children: [
                 Container(
-                  height: 170,
+                  height: MediaQuery.of(context).size.height * 0.2,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/images/ice.jpg'),
-                        fit: BoxFit.cover),
+                        image: AssetImage('assets/images/city2.jpg'),
+                        opacity: 0.8,
+                        fit: BoxFit.fill),
                   ),
                 ),
                 Column(
                   children: [
                     SizedBox(
-                      height: 120,
+                      height: MediaQuery.of(context).size.height * 0.17,
                     ),
                     Container(
                       alignment: Alignment.bottomCenter,
@@ -47,8 +60,8 @@ class _HomePageState extends State<HomePage> {
                       decoration: BoxDecoration(
                         color: Color.fromARGB(255, 250, 250, 250),
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20),
-                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25),
                         ),
                       ),
                     ),
@@ -118,7 +131,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             Row(
-              children: [  
+              children: [
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(left: 0),
@@ -196,6 +209,39 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+
+            Padding(
+              padding: const EdgeInsets.only(top: 20, left: 15, bottom: 10),
+              child: Text("Informasi untuk Pengguna!",
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Santana')),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 5,
+                left: 15,
+              ),
+              child: Text(
+                "Nikmati pelayanan dari teknisi berpegalaman dan terpercaya. Pesan sekarang juga!",
+                style: TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+            ),
+            CarouselSlider(
+              items: imageSliders,
+              options: CarouselOptions(
+                height: 140,
+                autoPlay: true,
+                aspectRatio: 2.0,
+                enableInfiniteScroll: true,
+                enlargeCenterPage: true,
+                // enlargeStrategy: CenterPageEnlargeStrategy.height,
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(15),
               child: Text(
@@ -245,43 +291,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20,left: 15,bottom: 10),
-              child: Text("Informasi untuk Pengguna!",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Santana')),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 5, left: 15,),
-              child: Text(
-                "Nikmati pelayanan dari teknisi berpegalaman dan terpercaya. Pesan sekarang juga!",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontFamily: 'Poppins',
-                ),
-              ),
-            ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Content(
-                    imagePath: "assets/images/banner6.png",
-                  ),
-                  Content(
-                    imagePath: "assets/images/banner4.png",
-                  ),
-                  Content(
-                    imagePath: "assets/images/banner5.png",
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20,left: 15,bottom: 10),
+              padding: const EdgeInsets.only(top: 20, left: 15, bottom: 10),
               child: Text("Ada Promo untuk pengguna baru!",
-              style: TextStyle(
+                  style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Santana')),
@@ -296,22 +308,34 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Content(
-                    imagePath: "assets/images/banner3.png",
-                  ),
-                  Content(
-                    imagePath: "assets/images/banner2.png",
-                  ),
-                  Content(
-                    imagePath: "assets/images/banner1.png",
-                  ),
-                ],
+            CarouselSlider(
+              items: imageSliders2,
+              options: CarouselOptions(
+                height: 140,
+                autoPlay: true,
+                reverse: true,
+                aspectRatio: 2.0,
+                enableInfiniteScroll: true,
+                enlargeCenterPage: true,
+                // enlargeStrategy: CenterPageEnlargeStrategy.height,
               ),
             ),
+            // SingleChildScrollView(
+            //   scrollDirection: Axis.horizontal,
+            //   child: Row(
+            //     children: [
+            //       Content(
+            //         imagePath: "assets/images/banner3.png",
+            //       ),
+            //       Content(
+            //         imagePath: "assets/images/banner2.png",
+            //       ),
+            //       Content(
+            //         imagePath: "assets/images/banner1.png",
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         )),
       ),
