@@ -209,39 +209,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-
-            Padding(
-              padding: const EdgeInsets.only(top: 20, left: 15, bottom: 10),
-              child: Text("Informasi untuk Pengguna!",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Santana')),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                bottom: 5,
-                left: 15,
-              ),
-              child: Text(
-                "Nikmati pelayanan dari teknisi berpegalaman dan terpercaya. Pesan sekarang juga!",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontFamily: 'Poppins',
-                ),
-              ),
-            ),
-            CarouselSlider(
-              items: imageSliders,
-              options: CarouselOptions(
-                height: 140,
-                autoPlay: true,
-                aspectRatio: 2.0,
-                enableInfiniteScroll: true,
-                enlargeCenterPage: true,
-                // enlargeStrategy: CenterPageEnlargeStrategy.height,
-              ),
-            ),
             Padding(
               padding: const EdgeInsets.all(15),
               child: Text(
@@ -290,52 +257,91 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20, left: 15, bottom: 10),
-              child: Text("Ada Promo untuk pengguna baru!",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Santana')),
+            SizedBox(
+              height: 10,
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 5, left: 15),
-              child: Text(
-                "Dapatkan diskon nya sekarang juga! S&K berlaku",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontFamily: 'Poppins',
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(15, 0, 0, 10),
+                child: Text("Pelayanan yang tersedia",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Santana')),
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Content(
+                    imagePath: "assets/images/clean.jpg",
+                    title: "Cuci AC",
+                  ),
+                  Content(
+                    imagePath: "assets/images/fix-ac.jpg",
+                    title: "Perbaikan AC",
+                  ),
+                  Content(
+                    imagePath: "assets/images/install.jpg",
+                    title: "Bongkar & Pasang AC",
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(25),
+                  topRight: Radius.circular(25),
                 ),
+                color: Colors.grey[800],
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 10, left: 15, bottom: 10),
+                    child: Text("Informasi untuk Pengguna!",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 101, 203, 233),
+                            fontSize: 21,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Santana')),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 10,
+                      left: 15,
+                    ),
+                    child: Text(
+                      "Nikmati pelayanan dari teknisi berpegalaman dan terpercaya. Pesan sekarang juga!",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  CarouselSlider(
+                    items: imageSliders,
+                    options: CarouselOptions(
+                      height: 150,
+                      autoPlay: true,
+                      enlargeStrategy: CenterPageEnlargeStrategy.height,
+                      enableInfiniteScroll: true,
+                      enlargeCenterPage: true,
+                    ),
+                  ),
+                  Padding(padding: EdgeInsets.only(bottom: 25)),
+                ],
               ),
             ),
-            CarouselSlider(
-              items: imageSliders2,
-              options: CarouselOptions(
-                height: 140,
-                autoPlay: true,
-                reverse: true,
-                aspectRatio: 2.0,
-                enableInfiniteScroll: true,
-                enlargeCenterPage: true,
-                // enlargeStrategy: CenterPageEnlargeStrategy.height,
-              ),
-            ),
-            // SingleChildScrollView(
-            //   scrollDirection: Axis.horizontal,
-            //   child: Row(
-            //     children: [
-            //       Content(
-            //         imagePath: "assets/images/banner3.png",
-            //       ),
-            //       Content(
-            //         imagePath: "assets/images/banner2.png",
-            //       ),
-            //       Content(
-            //         imagePath: "assets/images/banner1.png",
-            //       ),
-            //     ],
-            //   ),
-            // ),
           ],
         )),
       ),

@@ -11,17 +11,17 @@ void main() {
   runApp(
     MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute: 'bottom',
         theme: ThemeData(
-        fontFamily: 'Poppins',   
-      ),
+          fontFamily: 'Poppins',
+        ),
         routes: {
           'login': (context) => const MyLogin(),
           'register': (context) => const MyRegister(),
           'forgot_password': (context) => ForgotPasswordScreen(),
           'home_page': (context) => const HomePage(),
           'bottom': (context) => const BottomNavi(),
-          'order' : (context) => PesanScreen(),
+          'order': (context) => PesanScreen(),
         }),
   );
 }

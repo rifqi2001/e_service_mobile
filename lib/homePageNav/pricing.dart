@@ -12,8 +12,13 @@ class _HargaScreenState extends State<HargaScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cek Harga'),
-        backgroundColor: Color.fromARGB(255, 101, 203, 233),
+        title: Text(
+          'Cek Harga',
+          style: TextStyle(color: Colors.black),
+        ),
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        shadowColor: Colors.grey,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -62,6 +67,17 @@ class _HargaScreenState extends State<HargaScreen> {
                     estimasi: "1 - 2 jam",
                   ),
                 ],
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: Text("*estimasi hanya perkiraan",
+                    style: TextStyle(fontSize: 10)),
               ),
             ),
             SizedBox(
