@@ -30,8 +30,13 @@ class _HomePageState extends State<History> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Riwayat Pesanan'),
-        backgroundColor: Color.fromARGB(255, 101, 203, 233),
+        title: Text(
+          'Riwayat Pesanan',
+          style: TextStyle(color: Colors.black),
+        ),
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        shadowColor: Colors.transparent,
       ),
       body: Container(
         decoration: BoxDecoration(

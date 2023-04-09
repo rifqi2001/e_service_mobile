@@ -7,18 +7,23 @@ class BantuanScreen extends StatefulWidget {
 }
 
 class _BantuanScreenState extends State<BantuanScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bantuan'),
-        backgroundColor: Color.fromARGB(255, 101, 203, 233),
+        title: Text(
+          'Bantuan',
+          style: TextStyle(color: Colors.black),
+        ),
+        iconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Colors.white,
+        shadowColor: Colors.transparent,
       ),
       body: Column(
         children: <Widget>[
           SearchBar(),
-          Expanded(child: Column(
+          Expanded(
+              child: Column(
             children: <Widget>[
               Padding(padding: EdgeInsets.all(10.0)),
               Row(

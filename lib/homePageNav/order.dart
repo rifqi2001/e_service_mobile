@@ -135,9 +135,13 @@ class _PesanScreenState extends State<PesanScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Pemesanan', style: TextStyle(color: Colors.white),),
-          backgroundColor: Color.fromARGB(255, 101, 203, 233),
-          iconTheme: IconThemeData(color: Colors.white),
+          title: Text(
+            'Pemesanan',
+            style: TextStyle(color: Colors.black),
+          ),
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.white,
+          shadowColor: Colors.transparent,
         ),
         body: SingleChildScrollView(
           child: Padding(
