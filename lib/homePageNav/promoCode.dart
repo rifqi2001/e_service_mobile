@@ -13,7 +13,7 @@ class _CodeState extends State<Code> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white12,
         shadowColor: Colors.transparent,
       ),
       body: Column(

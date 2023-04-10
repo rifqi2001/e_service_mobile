@@ -8,6 +8,7 @@ import 'package:e_service/profileNav/update.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:e_service/orderNav/payment.dart';
 
 class Profil extends StatefulWidget {
   const Profil({Key? key});
@@ -277,7 +278,7 @@ class _HomePageState extends State<Profil> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => UpdateProfile()),
+                    MaterialPageRoute(builder: (context) => PaymentMethodPage()),
                   );
                 },
                 child: SizedBox(

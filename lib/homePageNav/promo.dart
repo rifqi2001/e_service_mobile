@@ -24,7 +24,7 @@ class _PromoScreenState extends State<PromoScreen> {
           style: TextStyle(color: Colors.black),
         ),
         iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.white12,
         shadowColor: Colors.transparent,
       ),
       body: SingleChildScrollView(

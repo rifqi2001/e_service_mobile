@@ -18,9 +18,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Notifications'),
-        backgroundColor: Color.fromARGB(255, 101, 203, 233),
-      ),
+        title: Text('Notifications', style: TextStyle(color: Colors.black),
+          ),
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.white12,
+          shadowColor: Colors.transparent,
+        ),
       body: ListView.builder(
         itemCount: notifications.length,
         itemBuilder: (context, index) {
