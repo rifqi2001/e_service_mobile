@@ -11,7 +11,7 @@ void main() {
   runApp(
     MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'bottom',
+        initialRoute: 'login',
         theme: ThemeData(
           fontFamily: 'Poppins',
         ),

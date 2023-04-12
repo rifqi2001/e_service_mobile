@@ -46,8 +46,13 @@ class _UpdateProfileState extends State<UpdateProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Update Profile'),
-          backgroundColor: Color.fromARGB(255, 101, 203, 233),
+          title: Text(
+            'Update Profile',
+            style: TextStyle(color: Colors.black),
+          ),
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.white12,
+          shadowColor: Colors.transparent,
         ),
         body: SingleChildScrollView(
             child: Padding(
@@ -154,7 +159,8 @@ class _UpdateProfileState extends State<UpdateProfile> {
                             onPressed: _submitForm,
                             child: Text('Simpan Perubahan'),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Color.fromARGB(255, 101, 203, 233),
+                              backgroundColor:
+                                  Color.fromARGB(255, 101, 203, 233),
                             ),
                           ),
                         ])))));

@@ -65,9 +65,12 @@ class _ContactPageState extends State<ContactPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Info Alamat'),
-        backgroundColor: Color.fromARGB(255, 101, 203, 233),
-      ),
+        title: Text('Info Alamat', style: TextStyle(color: Colors.black),
+          ),
+          iconTheme: IconThemeData(color: Colors.black),
+          backgroundColor: Colors.white12,
+          shadowColor: Colors.transparent,
+        ),
       body: Container(
         padding: EdgeInsets.all(16.0),
         child: Column(
