@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Category extends StatelessWidget {
@@ -9,14 +10,13 @@ class Category extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Card(
-      margin: EdgeInsets.all(10),
       child: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: const EdgeInsets.all(20.0),
         child: Container(
-          width: 60,
-          height: 60,
-          decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255)),
+          width: 70,
+          height: 70,
+          decoration: BoxDecoration(
+              color: Colors.blue[900], borderRadius: BorderRadius.circular(25)),
           child: Column(
             children: [
               Image.asset(
@@ -29,12 +29,13 @@ class Category extends StatelessWidget {
               Text(
                 title,
                 maxLines: 1,
-                style: TextStyle(fontFamily: 'Santana', fontSize: 12),
+                style: TextStyle(
+                    fontFamily: 'Santana', fontSize: 12, color: Colors.white),
               )
             ],
           ),
         ),
       ),
-    ));
+    );
   }
 }

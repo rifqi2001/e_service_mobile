@@ -41,12 +41,13 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   height: MediaQuery.of(context).size.height * 0.2,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('assets/images/city2.jpg'),
-                        opacity: 0.8,
-                        fit: BoxFit.fill),
-                  ),
+                  color: Colors.blue[900],
+                  // decoration: BoxDecoration(
+                  //   image: DecorationImage(
+                  //       image: AssetImage('assets/images/city2.jpg'),
+                  //       opacity: 0.8,
+                  //       fit: BoxFit.fill),
+                  // ),
                 ),
                 Column(
                   children: [
@@ -130,206 +131,36 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => PesanScreen(),
-                              ),
-                            );
-                          },
-                          child: Category(
-                              imagePath: "assets/icons/ac.png", title: "Pesan"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HargaScreen(),
-                              ),
-                            );
-                          },
-                          child: Category(
-                              imagePath: "assets/icons/price2.png",
-                              title: "Cek Harga"),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => PromoScreen(),
-                              ),
-                            );
-                          },
-                          child: Category(
-                              imagePath: "assets/icons/discount2.png",
-                              title: "Promo"),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => BantuanScreen(),
-                              ),
-                            );
-                          },
-                          child: Category(
-                              imagePath: "assets/icons/help2.png",
-                              title: "Bantuan"),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: Text(
-                "Pemberitahuan",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Santana'),
-              ),
-            ),
-            Container(
-              color: Color.fromARGB(255, 253, 255, 168),
-              margin: EdgeInsets.only(left: 20.0, right: 20.0),
-              height: 40,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Row(
-                  children: [
-                    Icon(Icons.crisis_alert, color: Colors.grey),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Text(
-                        "Anda mendapat pemberitahuan baru",
-                        style: TextStyle(fontSize: 11),
-                      ),
-                    ),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => NotificationScreen()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          textStyle: TextStyle(fontSize: 12),
-                          minimumSize: Size(60, 25),
-                          backgroundColor: Colors.yellow,
-                        ),
-                        child: Text("Cek Disini",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: 'Poppins',
-                                fontSize: 10)))
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
             Align(
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.fromLTRB(15, 0, 0, 10),
-                child: Text("Pelayanan yang tersedia",
+                child: Text("Informasi untuk Pengguna!",
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Santana')),
               ),
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Content(
-                    imagePath: "assets/images/clean.jpg",
-                    title: "Cuci AC",
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 10,
+                    left: 15,
                   ),
-                  Content(
-                    imagePath: "assets/images/fix-ac.jpg",
-                    title: "Perbaikan AC",
+                  child: Text(
+                    "Nikmati pelayanan dari teknisi berpegalaman dan terpercaya. Pesan sekarang juga!",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontFamily: 'Poppins',
+                    ),
                   ),
-                  Content(
-                    imagePath: "assets/images/install.jpg",
-                    title: "Bongkar & Pasang AC",
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              padding: EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(25),
-                  topRight: Radius.circular(25),
                 ),
-                color: Colors.grey[800],
-              ),
-              child: Column(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 10, left: 15, bottom: 10),
-                    child: Text("Informasi untuk Pengguna!",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 101, 203, 233),
-                            fontSize: 21,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'Santana')),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      bottom: 10,
-                      left: 15,
-                    ),
-                    child: Text(
-                      "Nikmati pelayanan dari teknisi berpegalaman dan terpercaya. Pesan sekarang juga!",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  CarouselSlider(
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: CarouselSlider(
                     items: imageSliders,
                     options: CarouselOptions(
                       height: 150,
@@ -339,9 +170,162 @@ class _HomePageState extends State<HomePage> {
                       enlargeCenterPage: true,
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(bottom: 25)),
-                ],
-              ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PesanScreen(),
+                                  ),
+                                );
+                              },
+                              child: Category(
+                                  imagePath: "assets/icons/ac.png",
+                                  title: "Pesan"),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => HargaScreen(),
+                                  ),
+                                );
+                              },
+                              child: Category(
+                                  imagePath: "assets/icons/price2.png",
+                                  title: "Cek Harga"),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PromoScreen(),
+                                  ),
+                                );
+                              },
+                              child: Category(
+                                  imagePath: "assets/icons/discount2.png",
+                                  title: "Promo"),
+                            ),
+                            // InkWell(
+                            //   onTap: () {
+                            //     Navigator.push(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //         builder: (context) => BantuanScreen(),
+                            //       ),
+                            //     );
+                            //   },
+                            //   child: Category(
+                            //       imagePath: "assets/icons/help2.png",
+                            //       title: "Bantuan"),
+                            // )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Text(
+                      "Pemberitahuan",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Santana'),
+                    ),
+                  ),
+                ),
+                Container(
+                  color: Color.fromARGB(255, 253, 255, 168),
+                  margin: EdgeInsets.only(left: 20.0, right: 20.0),
+                  height: 40,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      children: [
+                        Icon(Icons.crisis_alert, color: Colors.grey),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            "Anda mendapat pemberitahuan baru",
+                            style: TextStyle(fontSize: 11),
+                          ),
+                        ),
+                        ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => NotificationScreen()),
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              textStyle: TextStyle(fontSize: 12),
+                              minimumSize: Size(60, 25),
+                              backgroundColor: Colors.yellow,
+                            ),
+                            child: Text("Cek Disini",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 10)))
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(15, 0, 0, 10),
+                    child: Text("Pelayanan yang tersedia",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Santana')),
+                  ),
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Content(
+                        imagePath: "assets/images/clean.jpg",
+                        title: "Cuci AC",
+                      ),
+                      Content(
+                        imagePath: "assets/images/fix-ac.jpg",
+                        title: "Perbaikan AC",
+                      ),
+                      Content(
+                        imagePath: "assets/images/install.jpg",
+                        title: "Bongkar & Pasang AC",
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Padding(padding: EdgeInsets.only(bottom: 25)),
+              ],
             ),
           ],
         )),
