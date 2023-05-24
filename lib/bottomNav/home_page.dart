@@ -42,12 +42,6 @@ class _HomePageState extends State<HomePage> {
                   height: MediaQuery.of(context).size.height * 0.2,
                   width: double.infinity,
                   color: Colors.blue[900],
-                  // decoration: BoxDecoration(
-                  //   image: DecorationImage(
-                  //       image: AssetImage('assets/images/city2.jpg'),
-                  //       opacity: 0.8,
-                  //       fit: BoxFit.fill),
-                  // ),
                 ),
                 Column(
                   children: [
@@ -218,19 +212,6 @@ class _HomePageState extends State<HomePage> {
                                   imagePath: "assets/icons/discount2.png",
                                   title: "Promo"),
                             ),
-                            // InkWell(
-                            //   onTap: () {
-                            //     Navigator.push(
-                            //       context,
-                            //       MaterialPageRoute(
-                            //         builder: (context) => BantuanScreen(),
-                            //       ),
-                            //     );
-                            //   },
-                            //   child: Category(
-                            //       imagePath: "assets/icons/help2.png",
-                            //       title: "Bantuan"),
-                            // )
                           ],
                         ),
                       ),

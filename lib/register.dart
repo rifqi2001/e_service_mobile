@@ -8,12 +8,13 @@ class MyRegister extends StatefulWidget {
 }
 
 class _MyRegisterState extends State<MyRegister> {
+  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordConfirmController =
+      TextEditingController();
 
-  bool isNameValid = false;
-  bool isEmailValid = false;
-  bool isPasswordValid = false;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +50,12 @@ class _MyRegisterState extends State<MyRegister> {
                   right: 35,
                   left: 35,
                   top: MediaQuery.of(context).size.height * 0.27),
-              child: Column(children: [
-                TextField(
+              child: Form(
+                key: _formKey,
+                child: Column(children: [
+                  TextFormField(
+                    controller: nameController,
                     decoration: InputDecoration(
-                        // focusedBorder: OutlineInputBorder(
-                        //   borderRadius: BorderRadius.circular(25),
-                        //   borderSide: const BorderSide(color: Colors.black),
-                        // ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25),
                           borderSide: const BorderSide(
@@ -65,107 +65,145 @@ class _MyRegisterState extends State<MyRegister> {
                         hintStyle: const TextStyle(
                             color: Color.fromARGB(255, 27, 27, 27)),
                         prefixIcon: Icon(Icons.person)),
-                    onChanged: (value) {
-                      setState(() {
-                        isNameValid = value.isNotEmpty;
-                      });
-                    }),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 27, 27, 27)),
-                      ),
-                      hintText: 'Email',
-                      hintStyle: const TextStyle(
-                          color: Color.fromARGB(255, 27, 27, 27)),
-                      prefixIcon: Icon(Icons.mail)),
-                  onChanged: (value) {
-                    setState(() {
-                      isEmailValid = value.isNotEmpty && value.contains('@');
-                    });
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(25),
-                        borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 27, 27, 27)),
-                      ),
-                      hintText: 'Password',
-                      hintStyle: const TextStyle(
-                          color: Color.fromARGB(255, 27, 27, 27)),
-                      prefixIcon: Icon(Icons.lock)),
-                  onChanged: (value) {
-                    setState(() {
-                      isPasswordValid = value.length > 8;
-                    });
-                  },
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                      onPressed: () {
-                        if (isPasswordValid && isEmailValid && isNameValid){
-                                Navigator.pushNamedAndRemoveUntil(
-                                  context, 
-                                  'bottom', 
-                                  (Route<dynamic> route) => false,
-                                );
-                              }
-                            else {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    title: Text('Error'),
-                                    content: Text('Nama, Email atau Password Tidak Valid!'),
-                                    actions: <Widget>[
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('OK'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            }
-                      },
-                      child: Text(
-                        'Submit',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.transparent,
-                        minimumSize: Size(150, 50),
-                        shape: RoundedRectangleBorder(
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Harap masukkan nama anda';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    controller: emailController,
+                    decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25),
-                          side: BorderSide(color: Colors.black12)
-                        )
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 27, 27, 27)),
+                        ),
+                        hintText: 'Email',
+                        hintStyle: const TextStyle(
+                            color: Color.fromARGB(255, 27, 27, 27)),
+                        prefixIcon: Icon(Icons.mail)),
+                    validator: (value) {
+                      if (value == null ||
+                          value.isEmpty ||
+                          !value.contains('@')) {
+                        return 'Harap masukkan email yang benar';
+                      }
+                      return null;
+                    },
+                    // onChanged: (value) {
+                    //   setState(() {
+                    //     isEmailValid = value.isNotEmpty && value.contains('@');
+                    //   });
+                    // },
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                      obscureText: true,
+                      controller: passwordController,
+                      decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 27, 27, 27)),
+                          ),
+                          hintText: 'Password',
+                          hintStyle: const TextStyle(
+                              color: Color.fromARGB(255, 27, 27, 27)),
+                          prefixIcon: Icon(Icons.lock)),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Harap masukkan password yang benar';
+                        } else if (value.length < 8) {
+                          return 'Password harus terdiri dari minimal 8 karakter';
+                        }
+                        return null;
+                      }),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    obscureText: true,
+                    controller: passwordConfirmController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25),
+                        borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 27, 27, 27)),
                       ),
+                      hintText: 'Konfirmasi Password',
+                      hintStyle: const TextStyle(
+                          color: Color.fromARGB(255, 27, 27, 27)),
+                      prefixIcon: Icon(Icons.lock),
                     ),
-                    ]),
-                const SizedBox(
-                  height: 40,
-                ),
-              ]),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Harap konfirmasi password';
+                      } else if (value != passwordController.text) {
+                        return 'Password tidak sama';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // Validate the form input
+                        if (_formKey.currentState!.validate()) {
+                          // Input is valid, show a success dialog
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text('Success!'),
+                                content: const Text('Registrasi Berhasil'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pushNamedAndRemoveUntil(
+                                          context, 'bottom', (route) => false);
+                                    },
+                                    child: const Text('Masuk'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        } else {
+                          // Input is invalid, show an error message
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                  'Please correct the errors in the form.'),
+                            ),
+                          );
+                        }
+                      },
+                      child: const Text('Submit'),
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.transparent,
+                          minimumSize: Size(150, 50),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                              side: BorderSide(color: Colors.black12))),
+                    ),
+                  ]),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                ]),
+              ),
             ),
-          ),
+          )
         ]),
       ),
     );

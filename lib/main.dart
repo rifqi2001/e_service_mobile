@@ -1,5 +1,6 @@
 import 'package:e_service/forgot_password.dart';
 import 'package:e_service/homePageNav/order.dart';
+import 'package:e_service/loadingScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:e_service/login.dart';
 import 'package:e_service/register.dart';
@@ -22,6 +23,7 @@ void main() {
           'home_page': (context) => const HomePage(),
           'bottom': (context) => const BottomNavi(),
           'order': (context) => PesanScreen(),
+          'loadingScreen': (context) => LoadingScreen()
         }),
   );
 }
